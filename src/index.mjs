@@ -8,6 +8,10 @@ const mockUsers = [
   { id: 1, username: 'anson', displayName: 'Anson' },
   { id: 2, username: 'jack', displayName: 'Jack' },
   { id: 3, username: 'adam', displayName: 'Adam' },
+  { id: 4, username: 'tina', displayName: 'Tina' },
+  { id: 5, username: 'jason', displayName: 'Jason' },
+  { id: 6, username: 'henry', displayName: 'Henry' },
+  { id: 7, username: 'marilyn', displayName: 'Marilyn' },
 ];
 
 app.get('/', (req, res) => {
@@ -15,7 +19,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/users', (req, res) => {
-  res.send(mockUsers);
+  console.log(req.query);
+  const {
+    query: { filter, value },
+  } = req;
+
+  if (filter && value) return res.send(mockUsers.filter((user) => user[filter].includes(value)));
+
+  return res.send(mockUsers);
 });
 
 app.get('/api/users/:id', (req, res) => {
