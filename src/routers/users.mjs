@@ -2,11 +2,9 @@ import { Router } from 'express';
 import { matchedData, validationResult, checkSchema } from 'express-validator';
 import { createUserValidationSchema } from '../utils/validationSchemas.mjs';
 import mockUsers from '../utils/constants.mjs';
-import { loggingMiddleware, resolveIndexByUserId } from '../utils/middlewares.mjs';
+import { resolveIndexByUserId } from '../utils/middlewares.mjs';
 
 const router = Router();
-
-router.use(loggingMiddleware);
 
 router.get('/api/users', (req, res) => {
   const {
