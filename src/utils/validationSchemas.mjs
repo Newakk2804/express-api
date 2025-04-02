@@ -30,30 +30,3 @@ export const createUserValidationSchema = {
     },
   },
 };
-
-export const queryFilterValidationSchema = {
-  filter: {
-    isString: {
-      errorMessage: 'Filter must be a string!',
-    },
-    isLength: {
-      options: {
-        min: 3,
-        max: 10,
-      },
-      errorMessage: 'Filter must be at least 3-10 characters',
-    },
-  },
-  value: {
-    isString: {
-      errorMessage: 'Value must be a string!',
-    },
-    isLength: {
-      options: {
-        min: 3,
-        max: 10,
-      },
-      errorMessage: 'Value must be at least 3-10 characters',
-    },
-  },
-};
