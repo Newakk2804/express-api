@@ -11,7 +11,9 @@ router.use(usersRouter);
 router.use(productsRouter);
 
 router.get('/', (req, res) => {
-  res.cookie('hello', 'world', { maxAge: 60000 * 60, signed: true});
+  console.log(req.session.id);
+  req.session.visited = true;
+  res.cookie('hello', 'world', { maxAge: 60000 * 60, signed: true });
   res.status(201).send({ msg: 'Hello' });
 });
 
