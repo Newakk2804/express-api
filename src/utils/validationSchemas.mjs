@@ -29,4 +29,16 @@ export const createUserValidationSchema = {
       errorMessage: 'Display Name must be a string!',
     },
   },
+  password: {
+    notEmpty: {
+      errorMessage: 'Password cannot be empty!',
+    },
+    isLength: {
+      options: {
+        min: 4,
+        max: 32,
+      },
+      errorMessage: 'Password must be at least 4 characters with a max of 32 characters!',
+    },
+  },
 };

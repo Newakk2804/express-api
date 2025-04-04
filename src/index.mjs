@@ -3,9 +3,16 @@ import routers from './routers/main.mjs';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import passport from 'passport';
+import mongoose from 'mongoose';
 import './strategies/local-strategy.mjs';
 
 const app = express();
+
+mongoose
+  .connect('mongodb://localhost:27017/express_tutorial')
+  .then(() => console.log('Connected to Database'))
+  .catch((err) => console.log(`Error: ${err}`));
+
 app.use(express.json());
 app.use(cookieParser('helloworld'));
 app.use(
