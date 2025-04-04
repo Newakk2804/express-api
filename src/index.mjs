@@ -2,6 +2,8 @@ import express from 'express';
 import routers from './routers/main.mjs';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
+import passport from 'passport';
+import './strategies/local-strategy.mjs';
 
 const app = express();
 app.use(express.json());
@@ -16,6 +18,8 @@ app.use(
     },
   })
 );
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(routers);
 
 const PORT = process.env.PORT || 3001;
