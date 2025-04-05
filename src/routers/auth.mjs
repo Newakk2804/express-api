@@ -8,9 +8,6 @@ router.post('/api/auth', passport.authenticate('local'), (req, res) => {
 });
 
 router.get('/api/auth/status', (req, res) => {
-  console.log(`Inside /auth/status endpoint`);
-  console.log(req.user);
-
   return req.user ? res.send(req.user) : res.sendStatus(401);
 });
 
