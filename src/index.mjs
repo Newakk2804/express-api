@@ -5,7 +5,8 @@ import session from 'express-session';
 import passport from 'passport';
 import mongoose from 'mongoose';
 import MongoStore from 'connect-mongo';
-import './strategies/local-strategy.mjs';
+// import './strategies/local-strategy.mjs';
+import './strategies/discord-strategy.mjs';
 
 const app = express();
 
@@ -38,3 +39,6 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running in PORT: ${PORT}`);
 });
+
+// client_secret = xrl-VCdLLNREY-Z_k74kR7oUvByK5SXF
+// client_id = 1358013498939936860
